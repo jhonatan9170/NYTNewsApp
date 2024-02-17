@@ -13,6 +13,10 @@
 		5A38DBBA2B80273D005C08AC /* NYTNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DBB82B80273D005C08AC /* NYTNewsApp.xcdatamodeld */; };
 		5A38DBBC2B80273E005C08AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A38DBBB2B80273E005C08AC /* Assets.xcassets */; };
 		5A38DBBF2B80273E005C08AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A38DBBD2B80273E005C08AC /* LaunchScreen.storyboard */; };
+		5A38DBEA2B802DF9005C08AC /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DBE82B802DF9005C08AC /* NewsService.swift */; };
+		5A38DBEB2B802DF9005C08AC /* RequestMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DBE92B802DF9005C08AC /* RequestMananger.swift */; };
+		5A38DBED2B802E3D005C08AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DBEC2B802E3D005C08AC /* Constants.swift */; };
+		5A38DBEF2B802F39005C08AC /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DBEE2B802F39005C08AC /* NewsModel.swift */; };
 		F2EEF1AFF98767DC1B58A1DA /* Pods_NYTNewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B493070BDD14D6872FAF4805 /* Pods_NYTNewsAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,10 @@
 		5A38DBBE2B80273E005C08AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A38DBC02B80273E005C08AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A38DBC52B80273E005C08AC /* NYTNewsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYTNewsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A38DBE82B802DF9005C08AC /* NewsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		5A38DBE92B802DF9005C08AC /* RequestMananger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMananger.swift; sourceTree = "<group>"; };
+		5A38DBEC2B802E3D005C08AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5A38DBEE2B802F39005C08AC /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B493070BDD14D6872FAF4805 /* Pods_NYTNewsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTNewsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3C86BC71C1090F92E7550D /* Pods_NYTNewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTNewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70B717A9674D5855214A22A /* Pods-NYTNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTNewsApp.release.xcconfig"; path = "Target Support Files/Pods-NYTNewsApp/Pods-NYTNewsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 			children = (
 				5A38DBE42B8028FA005C08AC /* Resources */,
 				5A38DBE32B8028DF005C08AC /* Extensions */,
+				5A38DBEC2B802E3D005C08AC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -147,6 +156,9 @@
 		5A38DBE72B802983005C08AC /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				5A38DBE82B802DF9005C08AC /* NewsService.swift */,
+				5A38DBE92B802DF9005C08AC /* RequestMananger.swift */,
+				5A38DBEE2B802F39005C08AC /* NewsModel.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -338,9 +350,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A38DBEF2B802F39005C08AC /* NewsModel.swift in Sources */,
 				5A38DBBA2B80273D005C08AC /* NYTNewsApp.xcdatamodeld in Sources */,
 				5A38DBB02B80273D005C08AC /* AppDelegate.swift in Sources */,
+				5A38DBEB2B802DF9005C08AC /* RequestMananger.swift in Sources */,
 				5A38DBB22B80273D005C08AC /* SceneDelegate.swift in Sources */,
+				5A38DBEA2B802DF9005C08AC /* NewsService.swift in Sources */,
+				5A38DBED2B802E3D005C08AC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
