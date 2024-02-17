@@ -13,7 +13,7 @@ struct NewsResponse: Codable {
     }
 }
 
-// MARK: - Result
+// MARK: - NewsResult
 struct NewsResult: Codable {
     let uri: String
     let url: String
@@ -58,4 +58,25 @@ struct NewMedia: Codable {
 // MARK: - MediaMetadatum
 struct NewsMediaMetadata: Codable {
     let url: String
+}
+struct NewEntity{
+    let category: String
+    let title: String
+    let byline: String
+    let abstract: String
+    let date: String
+    var imageURL: String?
+    let webURL: String
+}
+
+extension NewsResult {
+    var newEntity:NewEntity {
+        return NewEntity(category: self.section,
+                         title: self.title,
+                         byline: self.byline,
+                         abstract: self.abstract,
+                         date: self.publishedDate,
+                         imageURL: self.media.first?.mediaMetadata[1].url,
+                         webURL: self.url)
+    }
 }
