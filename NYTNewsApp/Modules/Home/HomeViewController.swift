@@ -28,7 +28,7 @@ class HomeViewController:UIViewController {
     
     func setupViews(){
         configureConstraints()
-        setupNavBar()
+        setupNavBarImage()
         showLoadingView()
     }
 }

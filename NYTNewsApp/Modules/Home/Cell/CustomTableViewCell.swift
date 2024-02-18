@@ -14,7 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -47,6 +47,15 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var stackView :UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [titleLabel,newsImageView])
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContraint()
@@ -63,9 +72,8 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func setupContraint() {
+        addSubview(stackView)
         addSubview(categoryLabel)
-        addSubview(titleLabel)
-        addSubview(newsImageView)
         addSubview(abstractLabel)
         addSubview(dateLabel)
         
@@ -75,18 +83,14 @@ class CustomTableViewCell: UITableViewCell {
             categoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             categoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            titleLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: -10),
-            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 10),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            newsImageView.topAnchor.constraint(equalTo: titleLabel.topAnchor),
-            newsImageView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10),
-            newsImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             newsImageView.widthAnchor.constraint(equalToConstant: 120),
             newsImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            abstractLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 15),
+            abstractLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15),
             abstractLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             abstractLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             

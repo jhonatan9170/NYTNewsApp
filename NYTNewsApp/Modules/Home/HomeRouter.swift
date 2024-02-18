@@ -18,7 +18,7 @@ class HomeRouter: HomeWireframeProtocol {
     }
     
     func showAlertWith(message: String) {
-        let alert = UIAlertController(title: "Posts", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "News", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Aceptar", style: .default)
         alert.addAction(okAction)
         viewController?.present(alert, animated: true)
@@ -26,8 +26,8 @@ class HomeRouter: HomeWireframeProtocol {
     
     func goToDetailView(new: NewEntity) {
         if let nav = viewController?.navigationController {
-            /*let vc = DetailRouter.createModule(post: post)
-            nav.pushViewController(vc, animated: true)*/
+            let vc = NewsDetailRouter.createModule(new: new)
+            nav.pushViewController(vc, animated: true)
         }
     }
     

@@ -1,4 +1,4 @@
-import UIKit
+import UIKit.UIViewController
 import IHProgressHUD
 
 extension UIViewController {
@@ -28,9 +28,14 @@ extension UIViewController {
         }
     }
     
-    func setupNavBar(){
+    func setupNavBarImage(){
         let imageView = UIImageView(image:  UIImage(named: "nytimes_03"))
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
+    }
+    
+    func setupNavBarBack(){
+        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = .black
     }
 }
