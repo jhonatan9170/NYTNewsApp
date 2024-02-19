@@ -18,7 +18,9 @@ class NewsDetailPresenter {
 extension NewsDetailPresenter: NewsDetailPresenterProtocol {
 
     func goToCompleteNew() {
-        router.goToCompleteNew(url: new.webURL)
+        if let url = new.webURL{
+            router.goToCompleteNew(url: url)
+        }
     }
     
     func getNewsDetail(){

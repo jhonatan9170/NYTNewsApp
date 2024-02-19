@@ -28,6 +28,7 @@
 		5A38DC032B8119DB005C08AC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DC022B8119DB005C08AC /* WebViewController.swift */; };
 		5A38DC072B811D54005C08AC /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DC052B811D54005C08AC /* NewsDetailViewController.swift */; };
 		5A38DC082B811D54005C08AC /* NewsDetailViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A38DC062B811D54005C08AC /* NewsDetailViewController+Constraints.swift */; };
+		5A81FAAA2B83B2C800082F9A /* CoreDataMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81FAA92B83B2C800082F9A /* CoreDataMananger.swift */; };
 		5A9EF32A2B812C04002F4498 /* NewsDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9EF3262B812C04002F4498 /* NewsDetailRouter.swift */; };
 		5A9EF32B2B812C04002F4498 /* NewsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9EF3272B812C04002F4498 /* NewsDetailPresenter.swift */; };
 		5A9EF32D2B812C04002F4498 /* NewsDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9EF3292B812C04002F4498 /* NewsDetailProtocols.swift */; };
@@ -71,6 +72,7 @@
 		5A38DC022B8119DB005C08AC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5A38DC052B811D54005C08AC /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		5A38DC062B811D54005C08AC /* NewsDetailViewController+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewsDetailViewController+Constraints.swift"; sourceTree = "<group>"; };
+		5A81FAA92B83B2C800082F9A /* CoreDataMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMananger.swift; sourceTree = "<group>"; };
 		5A9EF3262B812C04002F4498 /* NewsDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailRouter.swift; sourceTree = "<group>"; };
 		5A9EF3272B812C04002F4498 /* NewsDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailPresenter.swift; sourceTree = "<group>"; };
 		5A9EF3292B812C04002F4498 /* NewsDetailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailProtocols.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				5A38DBE82B802DF9005C08AC /* NewsService.swift */,
 				5A38DBE92B802DF9005C08AC /* RequestMananger.swift */,
+				5A81FAA92B83B2C800082F9A /* CoreDataMananger.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -199,11 +202,11 @@
 			children = (
 				5A38DBFD2B8044C1005C08AC /* Cell */,
 				5A38DBF32B8039D0005C08AC /* HomeProtocols.swift */,
-				5A38DBF22B8039D0005C08AC /* HomeInteractor.swift */,
 				5A38DBF92B803BFF005C08AC /* HomeViewController.swift */,
-				5A38DBF42B8039D0005C08AC /* HomePresenter.swift */,
-				5A38DBF12B8039D0005C08AC /* HomeRouter.swift */,
 				5A38DBFE2B8048EB005C08AC /* HomeViewController+Constraints.swift */,
+				5A38DBF42B8039D0005C08AC /* HomePresenter.swift */,
+				5A38DBF22B8039D0005C08AC /* HomeInteractor.swift */,
+				5A38DBF12B8039D0005C08AC /* HomeRouter.swift */,
 				5A38DBEE2B802F39005C08AC /* NewsModel.swift */,
 			);
 			path = Home;
@@ -421,6 +424,7 @@
 				5A38DC012B81180C005C08AC /* ExtensionUIVIewController.swift in Sources */,
 				5A9EF32B2B812C04002F4498 /* NewsDetailPresenter.swift in Sources */,
 				5A9EF32A2B812C04002F4498 /* NewsDetailRouter.swift in Sources */,
+				5A81FAAA2B83B2C800082F9A /* CoreDataMananger.swift in Sources */,
 				5A38DBBA2B80273D005C08AC /* NYTNewsApp.xcdatamodeld in Sources */,
 				5A38DBFF2B8048EB005C08AC /* HomeViewController+Constraints.swift in Sources */,
 				5A38DBB02B80273D005C08AC /* AppDelegate.swift in Sources */,

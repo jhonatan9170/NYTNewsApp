@@ -102,5 +102,6 @@ extension NewsDetailViewController: NewsDetailViewProtocol {
         categoryLabel.text = presenter?.new.category
         abstractLabel.text = presenter?.new.abstract
         dateLabel.text = presenter?.new.date
+        urlLabel.isHidden = presenter?.new.webURL == nil
     }
 }

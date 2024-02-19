@@ -60,18 +60,20 @@ struct NewsMediaMetadata: Codable {
     let url: String
 }
 struct NewEntity{
+    let id:Int
     let category: String
     let title: String
     let byline: String
     let abstract: String
     let date: String
-    var imageURL: String?
-    let webURL: String
+    let imageURL: String?
+    let webURL: String?
 }
 
 extension NewsResult {
     var newEntity:NewEntity {
-        return NewEntity(category: self.section,
+        return NewEntity(id:self.id,
+                         category: self.section,
                          title: self.title,
                          byline: self.byline,
                          abstract: self.abstract,
