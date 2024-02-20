@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 protocol CoreDataManagerProtocol {
-    func saveNew(new:NewEntity)
+    func saveNew(new:NewsModel)
     func fetchNews() -> [NewsData]
 }
 
@@ -23,7 +23,7 @@ class CoreDataManager:CoreDataManagerProtocol {
         return persistentContainer.viewContext
     }
 
-    func saveNew(new:NewEntity) {
+    func saveNew(new:NewsModel) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsData")
         fetchRequest.predicate = NSPredicate(format: "id == %lld", Int64(new.id))
         do {
@@ -57,19 +57,4 @@ class CoreDataManager:CoreDataManagerProtocol {
         }
     }
 
-}
-
-extension NewsData {
-    
-    var newEntity:NewEntity {
-        return NewEntity(id: Int(self.id),
-                         category: self.category ?? "",
-                         title: self.title ?? "",
-                         byline: self.byline ?? "",
-                         abstract: self.abstract ?? "",
-                         date: self.date ?? "",
-                         imageURL: nil,
-                         webURL: nil)
-    }
-    
 }

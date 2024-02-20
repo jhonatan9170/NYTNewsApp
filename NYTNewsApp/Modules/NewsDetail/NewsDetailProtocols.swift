@@ -7,7 +7,7 @@ protocol NewsDetailWireframeProtocol: AnyObject {
 
 //MARK: View -> Presenter
 protocol NewsDetailPresenterProtocol: AnyObject {
-    var new: NewEntity {get set}
+    var new: NewsModel {get set}
     func getNewsDetail()
     func goToCompleteNew()
 }

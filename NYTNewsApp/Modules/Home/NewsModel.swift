@@ -59,7 +59,7 @@ struct NewMedia: Codable {
 struct NewsMediaMetadata: Codable {
     let url: String
 }
-struct NewEntity{
+struct NewsModel{
     let id:Int
     let category: String
     let title: String
@@ -68,17 +68,38 @@ struct NewEntity{
     let date: String
     let imageURL: String?
     let webURL: String?
-}
 
-extension NewsResult {
-    var newEntity:NewEntity {
-        return NewEntity(id:self.id,
-                         category: self.section,
-                         title: self.title,
-                         byline: self.byline,
-                         abstract: self.abstract,
-                         date: self.publishedDate,
-                         imageURL: self.media.first?.mediaMetadata[1].url,
-                         webURL: self.url)
+    init(id: Int, category: String, title: String, byline: String, abstract: String, date: String, imageURL: String?, webURL: String?) {
+        self.id = id
+        self.category = category
+        self.title = title
+        self.byline = byline
+        self.abstract = abstract
+        self.date = date
+        self.imageURL = imageURL
+        self.webURL = webURL
     }
+    
+    init(newsData : NewsData){
+        self.id = Int(newsData.id)
+        self.category = newsData.category ?? ""
+        self.title = newsData.title ?? ""
+        self.byline = newsData.byline ?? ""
+        self.abstract = newsData.abstract ?? ""
+        self.date = newsData.date ?? ""
+        self.imageURL = nil
+        self.webURL = nil
+    }
+    
+    init(newsResult : NewsResult){
+        self.id = newsResult.id
+        self.category = newsResult.section
+        self.title = newsResult.title
+        self.byline = newsResult.byline
+        self.abstract = newsResult.abstract
+        self.date = newsResult.publishedDate
+        self.imageURL = newsResult.media.first?.mediaMetadata[1].url
+        self.webURL = newsResult.url
+    }
+    
 }

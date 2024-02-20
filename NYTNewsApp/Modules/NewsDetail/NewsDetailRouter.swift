@@ -4,7 +4,7 @@ class NewsDetailRouter: NewsDetailWireframeProtocol {
 
     weak var viewController: UIViewController?
 
-    static func createModule(new: NewEntity) -> UIViewController {
+    static func createModule(new: NewsModel) -> UIViewController {
         let view = NewsDetailViewController()
         let router = NewsDetailRouter()
         let presenter = NewsDetailPresenter(interface: view, router: router, new: new)

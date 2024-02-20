@@ -118,6 +118,10 @@ extension HomeViewController:UIPickerViewDelegate,UIPickerViewDataSource {
         return nil
     }
     
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 45
+    }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.daysPickerView.isHidden = true
         self.popularityPickerView.isHidden = true

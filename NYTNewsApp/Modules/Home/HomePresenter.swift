@@ -3,10 +3,10 @@ import UIKit
 class HomePresenter {
     
     weak private var view: HomeViewProtocol?
-    var interactor: HomeInteractorInputProtocol?
+    private var interactor: HomeInteractorInputProtocol?
     private let router: HomeWireframeProtocol
     
-    private var _news = [NewEntity]()
+    private var _news = [NewsModel]()
     private var _typeNewsPopular: TypeNewsPopular = .emailed
     private var _typePeriodTime: TypePeriodTime = .oneDay
     
@@ -19,7 +19,7 @@ class HomePresenter {
 
 extension HomePresenter: HomePresenterProtocol {
     
-    var news: [NewEntity] {
+    var news: [NewsModel] {
         get {
             return _news
         }
@@ -60,7 +60,7 @@ extension HomePresenter: HomePresenterProtocol {
         interactor?.loadNews(typeNewsPopular: _typeNewsPopular, typePeriodTime: _typePeriodTime)
     }
     
-    func newCellAtIndex(_ index: Int) -> NewEntity {
+    func newCellAtIndex(_ index: Int) -> NewsModel {
         return _news[index]
     }
     
@@ -73,7 +73,7 @@ extension HomePresenter: HomePresenterProtocol {
 extension HomePresenter: HomeInteractorOutputProtocol {
     
     func newsListDidFetch(newList: [NewsResult]) {
-        _news = newList.map{$0.newEntity}
+        _news = newList.map{NewsModel(newsResult: $0)}
         interactor?.saveNewsDataStorage(newData: _news)
         view?.showNews()
     }
@@ -84,7 +84,7 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func newsDataStorageDidFetch(_ news: [NewsData]) {
-        _news = news.map{$0.newEntity}
+        _news = news.map{NewsModel(newsData: $0)}
         view?.showNews()
     }
     

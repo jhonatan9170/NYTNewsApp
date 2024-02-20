@@ -18,7 +18,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
         }
     }
     
-    func saveNewsDataStorage(newData: [NewEntity]) {
+    func saveNewsDataStorage(newData: [NewsModel]) {
         for new in newData {
             coreDataMananger.saveNew(new: new)
         }

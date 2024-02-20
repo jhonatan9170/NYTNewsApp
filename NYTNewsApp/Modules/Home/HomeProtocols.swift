@@ -3,18 +3,17 @@ import Foundation
 //MARK: Presenter -> Router
 protocol HomeWireframeProtocol: AnyObject {
     func showAlertWith(message: String)
-    func goToDetailView(new: NewEntity)
+    func goToDetailView(new: NewsModel)
 }
 
 //MARK: View -> Presenter
 protocol HomePresenterProtocol: AnyObject {
-    var interactor: HomeInteractorInputProtocol? { get set }
-    var news: [NewEntity] {get set}
+    var news: [NewsModel] {get set}
     var typeNewsPopular: TypeNewsPopular{get set}
     var typePeriodTime: TypePeriodTime {get set}
     
     func loadNews()
-    func newCellAtIndex(_ index : Int) -> NewEntity
+    func newCellAtIndex(_ index : Int) -> NewsModel
     func goToDetailView(withIndex index: Int)
 }
 
@@ -29,7 +28,7 @@ protocol HomeInteractorOutputProtocol: AnyObject {
 protocol HomeInteractorInputProtocol: AnyObject {
     var presenter: HomeInteractorOutputProtocol?  { get set }
     func loadNews(typeNewsPopular: TypeNewsPopular, typePeriodTime: TypePeriodTime)
-    func saveNewsDataStorage(newData:[NewEntity])
+    func saveNewsDataStorage(newData:[NewsModel])
     func loadNewsDataStorage()
 }
 

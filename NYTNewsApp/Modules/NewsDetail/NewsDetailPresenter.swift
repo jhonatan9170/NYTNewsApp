@@ -5,9 +5,9 @@ class NewsDetailPresenter {
     weak private var view: NewsDetailViewProtocol?
     private let router: NewsDetailWireframeProtocol
     
-    var new: NewEntity
+    var new: NewsModel
     
-    init(interface: NewsDetailViewProtocol, router: NewsDetailWireframeProtocol, new:NewEntity) {
+    init(interface: NewsDetailViewProtocol, router: NewsDetailWireframeProtocol, new:NewsModel) {
         self.view = interface
         self.router = router
         self.new = new

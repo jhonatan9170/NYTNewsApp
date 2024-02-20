@@ -61,7 +61,7 @@ class CustomTableViewCell: UITableViewCell {
         setupContraint()
     }
     
-    func configCell(new:NewEntity){
+    func configCell(new:NewsModel){
         categoryLabel.text = new.category
         titleLabel.text = new.title
         abstractLabel.text = new.abstract

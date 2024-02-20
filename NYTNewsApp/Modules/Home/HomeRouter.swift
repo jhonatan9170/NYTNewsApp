@@ -24,7 +24,7 @@ class HomeRouter: HomeWireframeProtocol {
         viewController?.present(alert, animated: true)
     }
     
-    func goToDetailView(new: NewEntity) {
+    func goToDetailView(new: NewsModel) {
         if let nav = viewController?.navigationController {
             let vc = NewsDetailRouter.createModule(new: new)
             nav.pushViewController(vc, animated: true)
