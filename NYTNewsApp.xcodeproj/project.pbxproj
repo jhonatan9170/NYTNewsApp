@@ -125,10 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				5A38DBE52B802913005C08AC /* App */,
-				5A38DBE72B802983005C08AC /* Request */,
+				5AFDE78B2B8443DC00777547 /* Data */,
 				5A38DBE62B802978005C08AC /* Modules */,
 				5A38DBE22B8028C1005C08AC /* Utilities */,
-				5A38DBB82B80273D005C08AC /* NYTNewsApp.xcdatamodeld */,
 			);
 			path = NYTNewsApp;
 			sourceTree = "<group>";
@@ -143,6 +142,7 @@
 		5A38DBE22B8028C1005C08AC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5AFDE78A2B8443C900777547 /* WebContent */,
 				5A38DBE42B8028FA005C08AC /* Resources */,
 				5A38DBE32B8028DF005C08AC /* Extensions */,
 				5A38DBEC2B802E3D005C08AC /* Constants.swift */,
@@ -162,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				5A38DBBB2B80273E005C08AC /* Assets.xcassets */,
-				5A38DC022B8119DB005C08AC /* WebViewController.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -185,16 +184,6 @@
 				5A38DC042B811CC0005C08AC /* NewsDetail */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		5A38DBE72B802983005C08AC /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				5A38DBE82B802DF9005C08AC /* NewsService.swift */,
-				5A38DBE92B802DF9005C08AC /* RequestMananger.swift */,
-				5A81FAA92B83B2C800082F9A /* CoreDataMananger.swift */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		5A38DBF02B80397A005C08AC /* Home */ = {
@@ -230,6 +219,41 @@
 				5A38DC062B811D54005C08AC /* NewsDetailViewController+Constraints.swift */,
 			);
 			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		5AFDE78A2B8443C900777547 /* WebContent */ = {
+			isa = PBXGroup;
+			children = (
+				5A38DC022B8119DB005C08AC /* WebViewController.swift */,
+			);
+			path = WebContent;
+			sourceTree = "<group>";
+		};
+		5AFDE78B2B8443DC00777547 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5AFDE78D2B8443FC00777547 /* Remote */,
+				5AFDE78C2B8443F700777547 /* Local */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5AFDE78C2B8443F700777547 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				5A81FAA92B83B2C800082F9A /* CoreDataMananger.swift */,
+				5A38DBB82B80273D005C08AC /* NYTNewsApp.xcdatamodeld */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		5AFDE78D2B8443FC00777547 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				5A38DBE82B802DF9005C08AC /* NewsService.swift */,
+				5A38DBE92B802DF9005C08AC /* RequestMananger.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		694DDF03DAE56D06C93CFD30 /* Pods */ = {

@@ -5,11 +5,10 @@ class NewsDetailRouter: NewsDetailWireframeProtocol {
     weak var viewController: UIViewController?
 
     static func createModule(new: NewsModel) -> UIViewController {
-        let view = NewsDetailViewController()
         let router = NewsDetailRouter()
-        let presenter = NewsDetailPresenter(interface: view, router: router, new: new)
+        let presenter = NewsDetailPresenter(router: router, new: new)
+        let view = NewsDetailViewController(presenter: presenter)
 
-        view.presenter = presenter
         router.viewController = view
 
         return view

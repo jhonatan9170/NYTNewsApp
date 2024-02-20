@@ -4,7 +4,7 @@ import Kingfisher
 
 class NewsDetailViewController: UIViewController {
     
-    var presenter: NewsDetailPresenterProtocol?
+    private let presenter: NewsDetailPresenterProtocol
     
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
@@ -72,36 +72,37 @@ class NewsDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        presenter?.getNewsDetail()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(urlLabelTapped))
+        urlLabel.addGestureRecognizer(tapGesture)
+        setupView()
     }
     
+    init(presenter: NewsDetailPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    func setup(){
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func urlLabelTapped() {
+        presenter.goToCompleteNew()
+    }
+    
+    func setupView() {
         view.backgroundColor = .white
         configureConstraints()
         setupNavBarImage()
         setupNavBarBack()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(urlLabelTapped))
-        urlLabel.addGestureRecognizer(tapGesture)
-    }
- 
-    
-    @objc func urlLabelTapped() {
-        presenter?.goToCompleteNew()
-    }
-}
-
-extension NewsDetailViewController: NewsDetailViewProtocol {
-    func updateView() {
-        if let url = presenter?.new.imageURL{
+        if let url = presenter.new.imageURL{
             newsImageView.kf.setImage(with: URL(string: url))
         }
-        titleLabel.text = presenter?.new.title
-        authorLabel.text = presenter?.new.byline
-        categoryLabel.text = presenter?.new.category
-        abstractLabel.text = presenter?.new.abstract
-        dateLabel.text = presenter?.new.date
-        urlLabel.isHidden = presenter?.new.webURL == nil
+        titleLabel.text = presenter.new.title
+        authorLabel.text = presenter.new.byline
+        categoryLabel.text = presenter.new.category
+        abstractLabel.text = presenter.new.abstract
+        dateLabel.text = presenter.new.date
+        urlLabel.isHidden = presenter.new.webURL == nil
     }
 }

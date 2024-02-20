@@ -3,10 +3,20 @@ import UIKit
 class HomeInteractor: HomeInteractorInputProtocol {
     
     
-    weak var presenter: HomeInteractorOutputProtocol?
+    private weak var presenter: HomeInteractorOutputProtocol?
     
-    var newsService: NewsServiceProtocol = NewsService()
-    var coreDataMananger = CoreDataManager.shared
+    private var newsService: NewsServiceProtocol
+    private var coreDataMananger : CoreDataManagerProtocol
+    
+    init(newsService: NewsServiceProtocol = NewsService(), coreDataMananger: CoreDataManagerProtocol = CoreDataManager.shared) {
+        self.newsService = newsService
+        self.coreDataMananger = coreDataMananger
+    }
+    
+    func setPresenterProtocol(presenter: HomeInteractorOutputProtocol) {
+        self.presenter = presenter
+    }
+    
     
     func loadNews(typeNewsPopular: TypeNewsPopular, typePeriodTime: TypePeriodTime) {
         newsService.requestToGetNews(typeNewsPopular: typeNewsPopular, typePeriodTime: typePeriodTime){ [weak self] news in
@@ -29,5 +39,6 @@ class HomeInteractor: HomeInteractorInputProtocol {
         let newsData = coreDataMananger.fetchNews()
         presenter?.newsDataStorageDidFetch(newsData)
     }
+    
     
 }

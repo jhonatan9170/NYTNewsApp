@@ -5,13 +5,11 @@ class HomeRouter: HomeWireframeProtocol {
     weak var viewController: UIViewController?
 
     static func createModule() -> UIViewController {
-        let view = HomeViewController()
+        
         let interactor = HomeInteractor()
         let router = HomeRouter()
-        let presenter = HomePresenter(interface: view, interactor: interactor, router: router)
-
-        view.presenter = presenter
-        interactor.presenter = presenter
+        let presenter = HomePresenter(interactor: interactor, router: router)
+        let view = HomeViewController(presenter: presenter)
         router.viewController = view
 
         return view

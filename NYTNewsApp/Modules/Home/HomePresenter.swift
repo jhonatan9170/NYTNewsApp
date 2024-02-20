@@ -2,18 +2,18 @@ import UIKit
 
 class HomePresenter {
     
-    weak private var view: HomeViewProtocol?
-    private var interactor: HomeInteractorInputProtocol?
-    private let router: HomeWireframeProtocol
+    private weak var view: HomeViewProtocol?
+    private let interactor: HomeInteractorInputProtocol
+    private let router:  HomeRouter
     
     private var _news = [NewsModel]()
     private var _typeNewsPopular: TypeNewsPopular = .emailed
     private var _typePeriodTime: TypePeriodTime = .oneDay
     
-    init(interface: HomeViewProtocol, interactor: HomeInteractorInputProtocol?, router: HomeWireframeProtocol) {
-        self.view = interface
+    init(interactor: HomeInteractorInputProtocol, router: HomeRouter) {
         self.interactor = interactor
         self.router = router
+        interactor.setPresenterProtocol(presenter: self)
     }
 }
 
@@ -55,9 +55,13 @@ extension HomePresenter: HomePresenterProtocol {
         }
     }
     
+    func setViewProtocol(view: HomeViewProtocol) {
+        self.view = view
+    }
+    
     
     func loadNews() {
-        interactor?.loadNews(typeNewsPopular: _typeNewsPopular, typePeriodTime: _typePeriodTime)
+        interactor.loadNews(typeNewsPopular: _typeNewsPopular, typePeriodTime: _typePeriodTime)
     }
     
     func newCellAtIndex(_ index: Int) -> NewsModel {
@@ -74,13 +78,13 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     
     func newsListDidFetch(newList: [NewsResult]) {
         _news = newList.map{NewsModel(newsResult: $0)}
-        interactor?.saveNewsDataStorage(newData: _news)
+        interactor.saveNewsDataStorage(newData: _news)
         view?.showNews()
     }
     
     func newsListFailed(error: String) {
         router.showAlertWith(message: error)
-        interactor?.loadNewsDataStorage()
+        interactor.loadNewsDataStorage()
     }
     
     func newsDataStorageDidFetch(_ news: [NewsData]) {
