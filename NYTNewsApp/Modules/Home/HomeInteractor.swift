@@ -39,6 +39,4 @@ class HomeInteractor: HomeInteractorInputProtocol {
         let newsData = coreDataMananger.fetchNews()
         presenter?.newsDataStorageDidFetch(newsData)
     }
-    
-    
 }

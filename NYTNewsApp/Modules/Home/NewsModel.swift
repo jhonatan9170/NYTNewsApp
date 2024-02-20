@@ -59,7 +59,7 @@ struct NewMedia: Codable {
 struct NewsMediaMetadata: Codable {
     let url: String
 }
-struct NewsModel{
+struct NewsModel:Equatable{
     let id:Int
     let category: String
     let title: String
@@ -98,8 +98,15 @@ struct NewsModel{
         self.byline = newsResult.byline
         self.abstract = newsResult.abstract
         self.date = newsResult.publishedDate
-        self.imageURL = newsResult.media.first?.mediaMetadata[1].url
         self.webURL = newsResult.url
+        
+        if let firstMedia = newsResult.media.first,
+           let mediaMetadata = firstMedia.mediaMetadata.first {
+            self.imageURL = mediaMetadata.url
+        } else {
+            self.imageURL = nil
+        }
+        
     }
     
 }

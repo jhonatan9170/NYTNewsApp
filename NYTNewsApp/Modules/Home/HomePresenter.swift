@@ -4,13 +4,13 @@ class HomePresenter {
     
     private weak var view: HomeViewProtocol?
     private let interactor: HomeInteractorInputProtocol
-    private let router:  HomeRouter
+    private let router:  HomeWireframeProtocol
     
     private var _news = [NewsModel]()
     private var _typeNewsPopular: TypeNewsPopular = .emailed
     private var _typePeriodTime: TypePeriodTime = .oneDay
     
-    init(interactor: HomeInteractorInputProtocol, router: HomeRouter) {
+    init(interactor: HomeInteractorInputProtocol, router: HomeWireframeProtocol) {
         self.interactor = interactor
         self.router = router
         interactor.setPresenterProtocol(presenter: self)
